@@ -1,0 +1,122 @@
+@use '../settings/' as settings;
+
+.header {
+  height: 70px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__logo {
+    font-family: settings.$font-raleway;
+    font-size: 2rem;
+    font-weight: 300;
+    color: settings.$color-primary;
+  }
+
+  &__nav-list {
+    display: flex;
+
+    @include settings.mobile {
+      position: absolute;
+      left: 0;
+      top: 95px;
+      flex-direction: column;
+      background-color: white;
+      width: 100%;
+      padding-bottom: 20px;
+      display: none;
+    }
+  }
+
+  &__nav-item {
+    padding: 0 26px;
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    @include settings.mobile {
+      padding: 0;
+    }
+  }
+
+  &__nav-link {
+    color: settings.$color-grey;
+    font-weight: 700;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    padding: 28px 18px 22px;
+    border-bottom: 4px solid transparent;
+    letter-spacing: 0.1875rem;
+
+    &:hover {
+      color: settings.$color-black;
+      border-color: settings.$color-primary;
+    }
+
+    @include settings.mobile {
+      display: block;
+      padding: 14px 20px;
+    }
+  }
+
+  &__menu-btn {
+    display: none;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    opacity: 0;
+
+    @include settings.mobile {
+      &:checked {
+        ~ .header__nav-list {
+          display: flex;
+        }
+  
+        ~ .header__menu-toggle {
+          .header__menu-line {
+            &:nth-child(1) {
+              transform: rotate(45deg) translate(2px, 5px);
+            }
+            &:nth-child(2) {
+              opacity: 0;
+            }
+            &:nth-child(3) {
+              transform: rotate(-45deg) translate(2px, -5px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__menu-toggle {
+    display: none;
+
+    @include settings.mobile {
+      display: block;
+    }
+  }
+
+  &__menu-line {
+    width: 20px;
+    height: 2px;
+    display: block;
+    margin-bottom: 3px;
+    background-color: settings.$color-primary;
+    transition: .3s all ease-in-out;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include settings.mobile {
+      display: block;
+    }
+  }
+}

@@ -1,21 +1,23 @@
-@use '../settings/fonts';
-@use '../settings/colors';
-@use '../settings/mixins';
+@use '../settings/' as settings;
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: fonts.$font-open-sans;
+  font-family: settings.$font-open-sans;
 }
 
 a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 h2 {
-  font-family: fonts.$font-raleway;
+  font-family: settings.$font-raleway;
   font-size: 2.25rem;
 }
 
@@ -23,15 +25,33 @@ h2 {
   width: 1352px;
   margin: 0 auto;
 
-  @include notebook {
+  @include settings.notebook {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  @include settings.mobile {
     width: 100%;
     padding: 0 15px;
   }
 }
 
-.logo {
-  font-family: fonts.$font-raleway;
-  font-size: 2rem;
-  font-weight: 300;
-  color: colors.$color-primary;
+.btn {
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  padding: 16px 65px;
+  border-radius: settings.$button-radius;
+  border: none;
+}
+
+.btn--primary {
+  background-color: settings.$color-primary;
+  border-radius: settings.$button-radius;
+  box-shadow: 3px 10px 14px settings.$color-primary-shadow;
+  color: settings.$color-white;
+}
+
+.btn--large {
+  padding: 22px 155px;
 }
