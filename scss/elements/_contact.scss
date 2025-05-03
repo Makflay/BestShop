@@ -1,0 +1,66 @@
+@use '../settings/' as settings;
+
+.contact {
+  padding: 80px 100px 100px;
+  display: flex;
+  justify-content: center;
+
+  @include settings.tablet {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 15px;
+  }
+
+  &__column {
+    width: 50%;
+
+    @include settings.tablet {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    font-size: 3.0625rem;
+    line-height: 3.6875rem;
+  }
+
+  &__instruction {
+    margin: 22px 0 42px;
+    font-size: 1rem;
+    line-height: 1.375rem;
+
+    @include settings.tablet {
+      margin: 5px 0 35px;
+    }
+  }
+
+  &__details {
+    display: flex;
+    justify-content: flex-start;
+    color: settings.$color-grey;
+    align-items: center;
+
+    @include settings.tablet {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__details-item {
+    color: settings.$color-grey;
+    font-weight: 500;
+    text-decoration: none;
+
+    @include settings.tablet {
+      margin-bottom: 10px;
+    }
+
+    &:first-of-type {
+      margin-right: 20px;
+    }
+  }
+
+  &__details-img {
+    margin-right: 10px;
+  }
+}
