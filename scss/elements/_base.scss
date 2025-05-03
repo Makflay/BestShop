@@ -36,6 +36,13 @@ h2 {
   }
 }
 
+.logo {
+  font-family: settings.$font-raleway;
+  font-size: 2rem;
+  font-weight: 300;
+  color: settings.$color-primary;
+}
+
 .btn {
   color: white;
   font-weight: bold;
